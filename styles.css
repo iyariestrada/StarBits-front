@@ -1,19 +1,20 @@
-/* ==== General Reset ==== */
+/*   General Reset   */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+html,
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fc;
-  color: #5a5c69;
+  color: #8394ff;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* ==== Layout ==== */
+/*   Layout   */
 main {
   max-width: 1300px;
   margin: 2rem auto;
@@ -24,7 +25,7 @@ section {
   margin-bottom: 3rem;
 }
 
-/* ==== Hero Section ==== */
+/*   Hero Section   */
 hero {
   display: block;
   height: 350px;
@@ -39,7 +40,7 @@ hero {
   letter-spacing: 1px;
 }
 
-/* ==== Headings ==== */
+/*   Headings   */
 h2 {
   color: #4e73df;
   font-size: 1.8rem;
@@ -49,7 +50,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* ==== Links ==== */
+/*   Links   */
 a {
   color: #4e73df;
   text-decoration: none;
@@ -58,7 +59,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ==== Grid System ==== */
+/*   Grid System   */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -73,7 +74,7 @@ a:hover {
   margin-bottom: 1.5rem !important;
 }
 
-/* ==== Card Styles ==== */
+/*   Card Styles   */
 .card {
   background: #fff;
   border-radius: 0.5rem;
@@ -97,7 +98,7 @@ a:hover {
   padding: 1rem 1.5rem;
 }
 
-/* ==== Progress Bars ==== */
+/*   Progress Bars   */
 .progress {
   background-color: #e9ecef;
   border-radius: 0.5rem;
@@ -111,29 +112,61 @@ a:hover {
   transition: width 0.6s ease;
 }
 
-/* ==== Background Color Variants ==== */
-.bg-danger { background-color: #e74a3b !important; }
-.bg-warning { background-color: #f6c23e !important; }
-.bg-info { background-color: #36b9cc !important; }
-.bg-success { background-color: #1cc88a !important; }
+/*   Background Color Variants   */
+.bg-danger {
+  background-color: #e74a3b !important;
+}
+.bg-warning {
+  background-color: #f6c23e !important;
+}
+.bg-info {
+  background-color: #36b9cc !important;
+}
+.bg-success {
+  background-color: #1cc88a !important;
+}
 
-/* ==== Text Utility ==== */
-.text-primary { color: #4e73df !important; }
-.text-black { color: #000 !important; }
-.text-black-50 { color: rgba(0, 0, 0, 0.5) !important; }
+/*   Text Utility   */
+.text-primary {
+  color: #4e73df !important;
+}
+.text-black {
+  color: #000 !important;
+}
+.text-black-50 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
 
-.font-weight-bold { font-weight: bold; }
-.small { font-size: 0.875rem; }
+.font-weight-bold {
+  font-weight: bold;
+}
+.small {
+  font-size: 0.875rem;
+}
 
-/* ==== Air Quality Color Codes ==== */
-.bg-good_no2 { background-color: #00e400; }
-.bg-moderate_no2 { background-color: #ffff00; }
-.bg-usg_no2 { background-color: #ff7e00; }
-.bg-unhealthy_no2 { background-color: #ff0000; }
-.bg-vunhealthy_no2 { background-color: #8f3f97; color: #fff; }
-.bg-hazardous_no2 { background-color: #7e0023; color: #fff; }
+/*   Air Quality Color Codes   */
+.bg-good_no2 {
+  background-color: #00e400;
+}
+.bg-moderate_no2 {
+  background-color: #ffff00;
+}
+.bg-usg_no2 {
+  background-color: #ff7e00;
+}
+.bg-unhealthy_no2 {
+  background-color: #ff0000;
+}
+.bg-vunhealthy_no2 {
+  background-color: #8f3f97;
+  color: #fff;
+}
+.bg-hazardous_no2 {
+  background-color: #7e0023;
+  color: #fff;
+}
 
-/* ==== Illustrations ==== */
+/*   Illustrations   */
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -143,7 +176,7 @@ a:hover {
   text-align: center;
 }
 
-/* ==== Responsive ==== */
+/*   Responsive   */
 @media (max-width: 992px) {
   .col-lg-6 {
     flex: 1 1 100%;
@@ -159,5 +192,134 @@ a:hover {
   }
   h2 {
     font-size: 1.5rem;
+  }
+}
+
+/*   Header   */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1b2b85;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*   Logo   */
+.brand img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.brand img:hover {
+  transform: scale(1.05);
+}
+
+/*   Navigation   */
+.nav {
+  display: flex;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #00c6ff;
+}
+
+/*   Toggle Button (Mobile)   */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger {
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.burger::before {
+  top: -7px;
+}
+
+.burger::after {
+  top: 7px;
+}
+
+/*   Active Toggle Animation   */
+.nav-toggle[aria-expanded="true"] .burger {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .burger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .burger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/*   Responsive   */
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(10, 15, 35, 0.95);
+    width: 200px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .nav-toggle {
+    display: block;
   }
 }

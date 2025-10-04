@@ -8,7 +8,34 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <hero></hero>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <img src="assets/space-apps-challenge.png" alt="NASA Space Apps Challenge Logo" />
+      </a>
+
+      <nav class="nav" id="main-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+      >
+        <span class="burger"></span>
+      </button>
+
+      <div class="header-content">
+        <h1>Welcome to StarBits</h1>
+        <p>Your gateway to the stars.</p>
+      </div>
+    </header>
     <main>
       <section id="about">BLANK1</section>
 
