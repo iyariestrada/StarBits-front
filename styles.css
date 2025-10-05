@@ -31,7 +31,7 @@ td{
   text-align: center;
   padding: 10px;
   font-weight: bold;
-
+   font-size: 20px;
 }
 
 
@@ -42,9 +42,9 @@ section {
 /* ==== Hero Section ==== */
 hero {
   display: block;
-  height: 150px;
-  background: linear-gradient(135deg, #4e73df, #224abe);
-  color: white;
+  height: 210px;
+  background: linear-gradient(135deg, #1B2B85, #1B2B85);
+  color: #ffff00;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,9 @@ hero {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 1px;
+  justify-content:; 
 }
+
 
 /* ==== Headings ==== */
 h2 {
