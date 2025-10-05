@@ -665,3 +665,13 @@ details[open] .description {
 .show-carousel-btn:hover {
   background-color: #0056b3;
 }
+
+.boton-js {
+  background-color: #0000;
+  color: rgb(68, 68, 71);
+  font-weight: bold;
+  padding: 15px 30px;
+  font-size: 15px;
+  border: 1px solid #0000;
+  border-radius: 10px;
+}

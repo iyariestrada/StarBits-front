@@ -181,3 +181,43 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoSlide();
   }
 });
+
+function mostrarMensajeGood() {
+  Swal.fire({
+    title: "Sin riesgo",
+    html: "La calidad del aire es satisfactoria y existe poco o ningún riesgo para la salud. Se puede realizar cualquier actividad al aire libre",
+    confirmButtonText: "Cerrar",
+  });
+}
+
+function mostrarMensajeModerate() {
+  Swal.fire({
+    title: "Aceptable",
+    html: "La calidad del aire es aceptable, sin embargo, en el caso de algunos contaminantes, las personas que son inusualmente sensibles, pueden presentar sintomas moderados. Las personas que son extremadamente sensibles a la contaminación deben considerar limitar los esfuerzos prolongados al aire libre.",
+    confirmButtonText: "Cerrar",
+  });
+}
+
+function mostrarUSG() {
+  Swal.fire({
+    title: "Dañina a la salud de grupos sensibles",
+    html: "Quienes pertenecen a los grupos sensibles pueden experimentar efectos en la salud. El público en general usualmente no es afectado. Los niños, adultos mayores, personas que realizan actividad física intensa o con enfermedades respiratorias y cardiovasculares, deben limitar los esfuerzos prolongados al aire libre.",
+    confirmButtonText: "Cerrar",
+  });
+}
+
+function mostrarMensajeUnhealthy() {
+  Swal.fire({
+    title: "Dañina a la salud",
+    html: "Todos pueden experimentar efectos en la salud, quienes pertenecen a los grupos sensibles pueden experimentar efectos graves en la salud. Los niños, adultos mayores, personas que realizan actividad fisica intensa o con enfermedades respiratorias y cardiovasculares, deben evitar el esfuerzo prolongado al aire libre.",
+    confirmButtonText: "Cerrar",
+  });
+}
+
+function mostrarVeryUnhealthy() {
+  Swal.fire({
+    title: "Peligroso para la salud",
+    html: "Representa una condición de emergencia. La población en general debe suspender los esfuerzos al aire libre.",
+    confirmButtonText: "Cerrar",
+  });
+}
