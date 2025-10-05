@@ -112,7 +112,7 @@ a:hover {
 }
 
 .card-body {
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 0.5rem;
 }
 
@@ -146,7 +146,8 @@ a:hover {
 
 /*   Text Utility   */
 .text-primary {
-  color: #4e73df !important;
+  color: #161a37 !important;
+  font-size: large;
 }
 .text-black {
   color: #000 !important;
@@ -596,7 +597,7 @@ details[open] .description {
   margin: 2rem auto;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   background-color: #f0f0f041; /* color de fondo para áreas vacías */
 }
 
@@ -621,7 +622,6 @@ details[open] .description {
   display: block;
   opacity: 1;
 }
-
 
 .carousel-btn {
   position: absolute;

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let autoSlideInterval = null;
 
   // Botón centrado arriba del carrusel
-  const showCarouselBtn = document.createElement("button");
+  /*const showCarouselBtn = document.createElement("button");
   showCarouselBtn.textContent = "Show Region Images";
   showCarouselBtn.classList.add("show-carousel-btn");
   carouselWrapper.insertBefore(showCarouselBtn, carouselContainer);
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       loadCarouselImages(true);
     }
-  });
+  });*/
 
   // Evento al seleccionar una región
   buttons.forEach((button, index) => {
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await loadCarouselImages();
       } catch (error) {
         console.warn("Servidor no disponible, usando modo de prueba.");
-        updatedText.textContent = `Last updated (local test mode): ${nowUTC}`;
+        updatedText.textContent = `Last updated: ${nowUTC}`;
         loadCarouselImages(true);
       } finally {
         document.body.style.cursor = "default";
@@ -84,10 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (testMode) {
         images = [
-          "/assets/tempo_map.png",
-          "/assets/starbits.jpeg",
-          "/assets/tempo_map.png",
-          "/assets/space-apps-challenge.png",
+          "/assets/zone30.jpeg",
+          "/assets/zone31.jpeg",
+          "/assets/zone32.jpeg",
+          "/assets/zone33.jpeg",
+          "/assets/zone34.jpeg",
+          "/assets/zone35.jpeg",
         ];
       } else {
         const res = await fetch("http://127.0.0.1:5000/api/images");
