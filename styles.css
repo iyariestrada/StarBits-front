@@ -588,3 +588,38 @@ details[open] .description {
   color: white;
   font-weight: bold;
 }
+
+.carousel-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.carousel {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carousel img {
+  width: 100%;
+  display: none;
+  transition: opacity 1s ease-in-out;
+}
+
+.show-carousel-btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background-color: #2546ff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.show-carousel-btn:hover {
+  background-color: #005fa3;
+}
