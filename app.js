@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".map-btn");
   const updatedText = document.querySelector(".updated");
 
-  // Contenedor que envuelve botón y carrusel
   const carouselWrapper = document.createElement("div");
   carouselWrapper.classList.add("carousel-wrapper");
   document.querySelector(".container").appendChild(carouselWrapper);
@@ -14,30 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedRegion = null;
   let autoSlideInterval = null;
 
-  // Botón centrado arriba del carrusel
-  /*const showCarouselBtn = document.createElement("button");
-  showCarouselBtn.textContent = "Show Region Images";
-  showCarouselBtn.classList.add("show-carousel-btn");
-  carouselWrapper.insertBefore(showCarouselBtn, carouselContainer);
-
-  showCarouselBtn.addEventListener("click", () => {
-    if (!selectedRegion) {
-      Swal.fire({
-        title: "Selecciona una región",
-        text: "Debes elegir una región antes de mostrar los gráficos.",
-        icon: "info",
-        confirmButtonColor: "#3085d6",
-      });
-    } else {
-      loadCarouselImages(true);
-    }
-  });*/
+  const API_BASE_URL = "http://127.0.0.1:5000";
 
   // Evento al seleccionar una región
   buttons.forEach((button, index) => {
     button.addEventListener("click", async () => {
-      const region = `Zone ${index + 1}`;
-      const nowUTC = new Date().toISOString().split(".")[0] + "Z";
+      const region = Number(index + 1);
+      const nowUTC = new Date().toISOString().replace("T", " ").split(".")[0];
+      const payload = { region, utcTime: String(nowUTC) };
       selectedRegion = region;
 
       buttons.forEach((btn) => btn.classList.remove("active"));
@@ -45,16 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.body.style.cursor = "wait";
       console.log(`Seleccionaste: ${region}`);
-      console.log("Hora UTC enviada:", nowUTC);
+      console.log("Hora UTC enviada:", payload.utcTime);
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/api/region-time", {
+        const response = await fetch("http://127.0.0.1:5000/region-time", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ region, utcTime: nowUTC }),
+          body: JSON.stringify(payload),
         });
 
-        if (!response.ok) throw new Error("Error en la solicitud al backend");
+        if (!response.ok) {
+          const serverText = await response.text();
+          console.error(
+            "POST /region-time failed:",
+            response.status,
+            serverText,
+            "payload:",
+            payload
+          );
+          Swal.fire({
+            title: "Error",
+            text: `Servidor retornó ${response.status}: ${serverText}`,
+            icon: "error",
+            confirmButtonColor: "#d33",
+          });
+          throw new Error(`Bad response ${response.status}`);
+        }
+
         const data = await response.json();
 
         updatedText.textContent = `Last updated (server UTC): ${data.server_utc}`;
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         await loadCarouselImages();
       } catch (error) {
-        console.warn("Servidor no disponible, usando modo de prueba.");
+        console.warn("Servidor no disponible.");
         updatedText.textContent = `Last updated: ${nowUTC}`;
         loadCarouselImages(true);
       } finally {
@@ -77,25 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Cargar imágenes (modo normal o de prueba)
-  async function loadCarouselImages(testMode = true) {
+  async function loadCarouselImages() {
     try {
-      let images = [];
+      const res = await fetch(`${API_BASE_URL}/images`);
+      if (!res.ok) throw new Error("No se pudieron cargar las imágenes");
+      images = (await res.json()).map((src) => `${API_BASE_URL}${src}`);
 
-      if (testMode) {
-        images = [
-          "/assets/zone30.jpeg",
-          "/assets/zone31.jpeg",
-          "/assets/zone32.jpeg",
-          "/assets/zone33.jpeg",
-          "/assets/zone34.jpeg",
-          "/assets/zone35.jpeg",
-        ];
-      } else {
-        const res = await fetch("http://127.0.0.1:5000/api/images");
-        if (!res.ok) throw new Error("No se pudieron cargar las imágenes");
-        images = (await res.json()).map((src) => "http://127.0.0.1:5000" + src);
-      }
+      console.log("Imágenes cargadas:", images);
 
       if (images.length === 0) {
         carouselContainer.innerHTML = "<p>No hay imágenes disponibles.</p>";
